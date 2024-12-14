@@ -17,8 +17,6 @@ import { Copy, Loader } from "lucide-react"
 import { handleCopy } from "@/lib/utilFunc/handleCopy"
 import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 import { auth, db } from "@/db/firebaseConfig"
-import { InvestmentType } from "@/types/plan"
-import { Toast } from "../ui/toast"
 import { toast } from "@/hooks/use-toast"
 import { useAuthStore } from "@/store/authStore"
 

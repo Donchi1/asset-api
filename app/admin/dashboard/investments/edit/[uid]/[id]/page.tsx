@@ -22,7 +22,7 @@ import Flex from '@/components/ui/flex';
 
 function EditInvestment() {
   const { id, uid } = useParams();
-  const [investment, loading, error] = useGetDocument(`investments/${uid}/investmentDatas`, id as string, { snap: true });
+  const [investment, loading] = useGetDocument(`investments/${uid}/investmentDatas`, id as string, { snap: true });
 
 
   useEffect(() => {

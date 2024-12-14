@@ -57,7 +57,7 @@ export const PasswordField: React.FC<PasswordFieldProps> = ({ label, id, showPwd
     </div>
   </div>
 );
-export const SelectField: React.FC<SelectFieldProps> = ({ label, id,items,onChange,className,value,  error, ...props }) => (
+export const SelectField: React.FC<SelectFieldProps> = ({ label, id,items,onChange,className,value,  error }) => (
   <div className="space-y-3 w-full">
     <label htmlFor={id} className="text-primary">
       {label}

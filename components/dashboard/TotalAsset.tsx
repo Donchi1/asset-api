@@ -1,4 +1,4 @@
-import { Bitcoin, EclipseIcon as Ethereum, CircleDollarSign } from 'lucide-react'
+import React from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { formatUSD } from '@/lib/utilFunc/converter'
 import { TotalAsset } from '@/types/crypto'

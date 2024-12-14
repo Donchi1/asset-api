@@ -4,11 +4,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Security from '../others/Security';
 
-interface FooterProps {
-    onChatOpen?: () => void;
-}
 
-export default function Footer({ onChatOpen }: FooterProps = {}) {
+
+export default function Footer() {
     const navItems = [
         { label: 'HOME', href: '/' },
         { label: 'ABOUT', href: '/main/about-us' },

@@ -3,9 +3,8 @@
 import React, { useState, ChangeEvent } from "react";
 import { useFormik, FormikHelpers } from "formik";
 import * as Yup from "yup";
-import Link from "next/link";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "@/db/firebaseConfig";
+import { auth } from "@/db/firebaseConfig";
 import { saveToFirestore } from "@/lib/actions";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import { useToast } from "@/hooks/use-toast";

@@ -8,7 +8,6 @@ import { usePathname, useRouter } from 'next/navigation'
 import { Menu } from 'lucide-react'
 import { SideBarSheet } from '../others/SidebarSheet'
 import ProfileDropdown from './ProfileDropdown'
-import useGetDocument from '@/hooks/UseDocument'
 import { auth } from '@/db/firebaseConfig'
 
 const NAV_LINKS = [

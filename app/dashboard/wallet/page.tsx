@@ -22,7 +22,7 @@ import React, { useState } from 'react'
 import { InputField, SelectField } from '@/components/ui/CustomInputs'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
-import { addDoc, collection, deleteDoc, doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
+import {  collection, deleteDoc, doc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
 import { auth, db } from '@/db/firebaseConfig'
 import { toast } from '@/hooks/use-toast'
 import useGetDocWithClause from '@/hooks/UseGetDocWithClause'
@@ -217,7 +217,7 @@ function Wallet() {
             <DialogHeader className='text-primary-gray'>
               <DialogTitle>Add Wallet</DialogTitle>
               <DialogDescription className='text-primary-gray'>
-                Add your wallet here. Click save when you're done.
+                Add your wallet here. Click save when you&apos;re done.
               </DialogDescription>
             </DialogHeader>
             <form className="grid gap-4 pb-4" onSubmit={handleSubmit}>
@@ -257,7 +257,7 @@ function Wallet() {
             <DialogHeader className='text-primary-gray'>
               <DialogTitle>Edit Wallet</DialogTitle>
               <DialogDescription className='text-primary-gray'>
-                Edit your wallet here. Click save when you're done.
+                Edit your wallet here. Click save when you&apos;re done.
               </DialogDescription>
             </DialogHeader>
             <form className="grid gap-4 pb-4" onSubmit={formikEdit.handleSubmit}>

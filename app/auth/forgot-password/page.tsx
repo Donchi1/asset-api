@@ -59,7 +59,7 @@ const ForgotPasswordPage: React.FC = () => {
     },
   });
 
-  const { touched, errors, values, getFieldProps, setFieldValue, isSubmitting } = formik;
+  const { touched, errors, getFieldProps,  isSubmitting } = formik;
 
   return (
     <section className="min-h-screen w-full py-20 main-gradient !bg-gradient-to-br">

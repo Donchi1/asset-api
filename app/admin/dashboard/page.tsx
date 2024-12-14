@@ -26,7 +26,7 @@ import useCollectionGroup from "@/hooks/UseCollectionGroup"
 
 export default function Page() {
   const {currentUser} = useAuthStore()
-  const [coins, loading,error] = useCollectionGroup(`coinDatas`) as readonly [CryptoBalance[], boolean, string | null]
+  const [coins, loading] = useCollectionGroup(`coinDatas`) as readonly [CryptoBalance[], boolean, string | null]
 
  const router = useRouter()
  const { balances, rates } = useCryptoRates(coins);

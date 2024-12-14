@@ -1,15 +1,13 @@
 "use client"
 import { AppSidebar } from "@/components/app-sidebar"
 import DashboardHeader from "@/components/dashboard/DashboardHeader"
-import { ReferralLink } from "@/components/dashboard/ReferrerLink"
 import { StatsCards } from "@/components/dashboard/StatCards"
 import SubHeader from "@/components/dashboard/SubHeader"
+import LoadingPage from "@/components/global/LoadingPage"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { SidebarInset } from "@/components/ui/sidebar"
 import useCollection from "@/hooks/UseCollection"
-import {  referralLinkInfo, referralStats } from "@/lib/utils"
-import { useAuthStore } from "@/store/authStore"
-import { DocumentData } from "firebase/firestore"
+import {   referralStats } from "@/lib/utils"
 
 export default function DashboardPage() {
   const [users, loading] = useCollection("users")
@@ -23,7 +21,7 @@ export default function DashboardPage() {
     refAmount: 30
   }
 
-
+  if(loading) return <LoadingPage />
   return (
     <SidebarProvider>
     <AppSidebar />

@@ -1,13 +1,13 @@
-
+"use client"
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { doc, DocumentData, getDoc, updateDoc } from 'firebase/firestore'
+import { doc, DocumentData, updateDoc } from 'firebase/firestore'
 import { auth, db } from "@/db/firebaseConfig"
 import * as Yup from "yup"
 import { useFormik } from 'formik'
 import { toast } from '@/hooks/use-toast'
 import { Button } from '../ui/button'
-import { Dialog, DialogDescription, DialogTitle, DialogContent, DialogFooter } from '../ui/dialog'
+import { Dialog, DialogDescription, DialogTitle, DialogContent } from '../ui/dialog'
 import { DialogHeader } from '../ui/dialog'
 import { InputField, SelectField } from '../ui/CustomInputs'
 import Flex from '../ui/flex'
@@ -43,17 +43,13 @@ const networks = {
 export default function ProfileInfoCard({ user, action, id }: { id?: string | undefined | string[], user: UserDataType | DocumentData | null | undefined, action?: Boolean }) {
 
 
-  const [coin, loadingCoins] = useCollection(`coins/${user?.uid}/coinDatas`) as readonly [CryptoBalance[], boolean, string | null]
+  const [coin] = useCollection(`coins/${user?.uid}/coinDatas`) as readonly [CryptoBalance[], boolean, string | null]
 
   const [file, setFile] = useState<Blob | File | null>(null);
   const [fileLoading, setFileLoading] = useState(false);
   const [openUserModal, setOpenUserModal] = useState(false);
   const [openCoinModal, setOpenCoinModal] = useState(false);
   const [selectedCoins, setSelectedCoins] = useState<CoinType>("");
-  const [selectedCoinsId, setSelectedCoinsId] = useState("");
-
-  console.log(coin)
-
 
 
   const updatePhoto = async () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import * as Yup from "yup"
 
 import { useFormik } from 'formik'
@@ -6,15 +6,13 @@ import { auth, db } from '@/db/firebaseConfig'
 import { doc, updateDoc } from 'firebase/firestore'
 import { toast } from '@/hooks/use-toast'
 import createNotification from '@/lib/utilFunc/createNotification'
-import { signInWithEmailAndPassword, signOut, updatePassword, User } from 'firebase/auth'
+import { signInWithEmailAndPassword, updatePassword, User } from 'firebase/auth'
 import Flex from '../ui/flex'
 import { InputField, TextAreaField } from '../ui/CustomInputs'
 import { Button } from '../ui/button'
 import { Card } from '../ui/card'
 import { Loader } from 'lucide-react'
 import { UserDataType } from '@/types/table'
-import { sign } from 'crypto'
-import { useAuthStore } from '@/store/authStore'
 import useGetDocWithClause from '@/hooks/UseGetDocWithClause'
 
 

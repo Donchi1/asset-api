@@ -6,11 +6,10 @@ import * as Yup from "yup";
 import Link from "next/link";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/db/firebaseConfig";
-import { toast, useToast } from "@/hooks/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { Card } from "@/components/ui/card";
 import H2 from "@/components/ui/H2";
 import { LoaderCircle } from "lucide-react";
-import Text from "@/components/ui/Text";
 import { Button } from "@/components/ui/button";
 import { createCookie } from "@/lib/utilFunc/createCookie";
 import { InputField, PasswordField } from "@/components/ui/CustomInputs";
@@ -85,7 +84,7 @@ const LoginPage: React.FC = () => {
         }
     };
 
-    const { touched, errors, values, getFieldProps, setFieldValue, isSubmitting } = formik;
+    const { touched, errors, getFieldProps, isSubmitting } = formik;
 
     return (
         <section className="min-h-screen w-full py-20 main-gradient !bg-gradient-to-br">

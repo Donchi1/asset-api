@@ -5,18 +5,15 @@ import Footer from '@/components/global/Footer';
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useToast } from '@/hooks/use-toast';
-import Title from '@/components/global/Title';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { InputField, TextAreaField } from '@/components/ui/CustomInputs';
 import { Card } from '@/components/ui/card';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { auth, db } from '@/db/firebaseConfig';
 
 export default function Contact() {
     const { toast } = useToast()
 
-
-    const currentUser = null
 
     const formik = useFormik({
         initialValues: {
@@ -51,17 +48,17 @@ export default function Contact() {
         const { email, name, subject, message } = val;
 
         try {
-            //await makeRequestApi.post("/contact", val)
-            // await addDoc(collection(db, "contacts"), {
-            //   uid: auth.currentUser ? auth.currentUser?.uid : Date.now(),
-            //   name,
-            //   email,
-            //   subject,
-            //   message,
-            //   status: "success",
-            //   filterDate: new Date().toLocaleDateString(),
-            //   date: serverTimestamp(),
-            // });
+            // await makeRequestApi.post("/contact", val)
+            await addDoc(collection(db, "contacts"), {
+              uid: auth.currentUser ? auth.currentUser?.uid : Date.now(),
+              name,
+              email,
+              subject,
+              message,
+              status: "success",
+              filterDate: new Date().toLocaleDateString(),
+              date: serverTimestamp(),
+            });
             formik.setSubmitting(false);
             formik.resetForm();
             toast({
@@ -74,43 +71,43 @@ export default function Contact() {
             toast({ description: "An error occured", variant: "destructive" });
         }
     };
-    const formikSub = useFormik({
-        initialValues: {
-            email: "",
-        },
+    // const formikSub = useFormik({
+    //     initialValues: {
+    //         email: "",
+    //     },
 
-        validationSchema: Yup.object({
-            email: Yup.string()
-                .email("Invalid email address")
-                .trim()
-                .required("Email required")
-                .lowercase(),
-        }),
-        onSubmit: (values) => handleSubmitSub(values),
-    });
+    //     validationSchema: Yup.object({
+    //         email: Yup.string()
+    //             .email("Invalid email address")
+    //             .trim()
+    //             .required("Email required")
+    //             .lowercase(),
+    //     }),
+    //     onSubmit: (values) => handleSubmitSub(values),
+    // });
 
-    const handleSubmitSub = async (val: { email: string }) => {
-        formik.setSubmitting(true);
-        const { email } = val;
+    // const handleSubmitSub = async (val: { email: string }) => {
+    //     formik.setSubmitting(true);
+    //     const { email } = val;
 
-        try {
-            //await makeRequestApi.post("/newsletter", val)
-            // await addDoc(collection(db, "newsletters"), {
-            //   newsLetter: email,
-            //   uid: auth.currentUser ? auth.currentUser?.uid : Date.now(),
-            //   status: "success",
-            //   date: serverTimestamp(),
-            //   user: currentUser? currentUser?.firstname : "Guest User"
-            // });
-            formik.setSubmitting(false);
-            formik.resetForm();
-            toast({ description: "Thanks for subscribing for our newsletter." });
-        } catch (err) {
-            formik.setSubmitting(false);
-            formik.resetForm();
-            toast({ description: "An error occured you can check your email address", variant: "destructive" });
-        }
-    };
+    //     try {
+    //         //await makeRequestApi.post("/newsletter", val)
+    //         // await addDoc(collection(db, "newsletters"), {
+    //         //   newsLetter: email,
+    //         //   uid: auth.currentUser ? auth.currentUser?.uid : Date.now(),
+    //         //   status: "success",
+    //         //   date: serverTimestamp(),
+    //         //   user: currentUser? currentUser?.firstname : "Guest User"
+    //         // });
+    //         formik.setSubmitting(false);
+    //         formik.resetForm();
+    //         toast({ description: "Thanks for subscribing for our newsletter." });
+    //     } catch (err) {
+    //         formik.setSubmitting(false);
+    //         formik.resetForm();
+    //         toast({ description: "An error occured you can check your email address", variant: "destructive" });
+    //     }
+    // };
 
     return (
         <>

@@ -1,6 +1,6 @@
 "use client"
 
-import { BillingPeriod, InvestmentPlan } from '@/types/plan'
+import { InvestmentPlan } from '@/types/plan'
 import { Card } from '../ui/card'
 
 

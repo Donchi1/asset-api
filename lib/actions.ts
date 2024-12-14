@@ -1,7 +1,7 @@
 
 import { auth, db, storage } from "@/db/firebaseConfig";
 import { User} from "firebase/auth";
-import { addDoc, collection, doc, query, getDocs, serverTimestamp, setDoc, where, getDoc, DocumentData } from "firebase/firestore";
+import { addDoc, collection, doc, serverTimestamp, setDoc, getDoc, DocumentData } from "firebase/firestore";
 import createNotification from "./utilFunc/createNotification";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { makeRequestApi } from "./utilFunc/makeRequest";
@@ -127,12 +127,12 @@ export const makePayment = async (currentUser:DocumentData | null | undefined, v
       })
       toast({
         description: "Your funding prove has been sent successfully. We will get back to you soon",
-      async onOpenChange(open) {
+      async onOpenChange() {
         try{
           makeRequestApi.post("/payments", currentUser)
         }catch(error:any){
           toast({
-            description:"An error occured while sending you an email",
+            description:"An error occured while sending you an email" + error?.message ,
             variant: "destructive"
            })
         }    

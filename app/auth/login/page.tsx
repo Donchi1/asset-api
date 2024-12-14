@@ -39,7 +39,7 @@ const LoginPage: React.FC = () => {
       password: Yup.string().min(5, "Password must be at least 5 characters").required("Password is required"),
 
     }),
-    onSubmit: async (values, { resetForm, setSubmitting }: FormikHelpers<FormDataType>) => {
+    onSubmit: async (values, {  setSubmitting }: FormikHelpers<FormDataType>) => {
       try {
         await signInWithEmailAndPassword(auth, values.email, values.password);
         formik.setSubmitting(false)
@@ -62,7 +62,7 @@ const LoginPage: React.FC = () => {
     },
   });
 
-  const { touched, errors, values, getFieldProps, setFieldValue, isSubmitting } = formik;
+  const { touched, errors, getFieldProps, isSubmitting } = formik;
 
   return (
     <section className="min-h-screen w-full py-20 main-gradient !bg-gradient-to-br">

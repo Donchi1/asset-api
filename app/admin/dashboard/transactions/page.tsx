@@ -7,7 +7,7 @@ import { SidebarInset } from '@/components/ui/sidebar'
 import React from 'react'
 import { DataTable } from '@/components/global/DataTable'
 import { HistoryType } from '@/types/table'
-import { columnHistory, columns } from '@/lib/utils'
+import { columnHistory } from '@/lib/utils'
 import LoadingPage from '@/components/global/LoadingPage'
 import useCollectionGroup from '@/hooks/UseCollectionGroup'
 

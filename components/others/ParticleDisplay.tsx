@@ -22,7 +22,7 @@ export const ParticleDisplay = () => {
     });
   }, []);
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {};
+  const particlesLoaded = async (): Promise<void> => {};
 
   const options: ISourceOptions = useMemo(
     () => ({

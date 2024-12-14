@@ -4,21 +4,20 @@ import { AppSidebar } from '@/components/app-sidebar'
 import DashboardHeader from '@/components/dashboard/DashboardHeader'
 import SubHeader from '@/components/dashboard/SubHeader'
 import { SidebarInset } from '@/components/ui/sidebar'
-import React, { useCallback, useState } from 'react'
-import useGetDocWithClause from '@/hooks/UseGetDocWithClause'
+import React, {  useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import Image from 'next/image'
 import moment from 'moment'
 import { auth, db } from '@/db/firebaseConfig'
-import { CryptoBalance, WalletType } from '@/types/crypto'
+import {  WalletType } from '@/types/crypto'
 import useCollection from '@/hooks/UseCollection'
 import { Button, LinkButton } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { InputField, SelectField } from '@/components/ui/CustomInputs'
 import { Loader } from 'lucide-react'
 import { toast } from '@/hooks/use-toast'
-import { addDoc, collection, getDocs, query, serverTimestamp, where } from 'firebase/firestore'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { getWalletSymbol } from '@/lib/utils'
 import { useFormik } from 'formik'
 import * as Yup from "yup"
@@ -175,7 +174,7 @@ if(coinsLoading) return <LoadingPage />
               <DialogHeader className='text-primary-gray'>
                 <DialogTitle>Request Withdrawal</DialogTitle>
                 <DialogDescription className='text-primary-gray'>
-                  Add your wallet and amount here. Click submit when you're done.
+                  Add your wallet and amount here. Click submit when you&apos;re done.
                 </DialogDescription>
               </DialogHeader>
               <form className="grid gap-4 pb-4" onSubmit={handleSubmit}>

@@ -1,8 +1,6 @@
 import { Input } from "@/components/ui/input"
 import { handleCopy } from "@/lib/utilFunc/handleCopy"
-import { ReferralLinkType } from "@/types/dashboard/referral"
 import { Copy } from "lucide-react"
-import Flex from "../ui/flex"
 
 interface ReferralLinkProps {
   data: string

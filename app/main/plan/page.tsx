@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { BillingPeriod, InvestmentPlan, PlanType } from '@/types/plan'
+import { InvestmentPlan, PlanType } from '@/types/plan'
 import { PlanCard } from '@/components/others/PlanCard'
 import Header from '@/components/global/Header'
 import Footer from '@/components/global/Footer'
