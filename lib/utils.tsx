@@ -13,7 +13,7 @@ import formatCurrency, { getDaysDifference } from "./utilFunc/converter"
 import { toast } from "@/hooks/use-toast"
 import { db } from "@/db/firebaseConfig"
 import Link from "next/link"
-import { InvestmentType } from "@/types/plan"
+import { InvestmentPlan, InvestmentType } from "@/types/plan"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -608,3 +608,64 @@ export const columnUsers: ColumnDef<UserDataType>[] = [
     },
   },
 ];
+
+
+export const investmentPlans: InvestmentPlan[] = [
+  {
+    id: 'starter',
+    name: 'STARTER PACK',
+    profitPercentage: 60,
+    minDeposit: 100,
+    maxDeposit: 200,
+    minWithdraw: "600 - 1000",
+    type: 'STANDARD'
+  },
+  {
+    id: 'bronze',
+    name: 'BRONZE PACK',
+    profitPercentage: 70,
+    minDeposit: 500,
+    maxDeposit: 600,
+    minWithdraw: "2500 - 3000",
+    type: 'STANDARD',
+    isPopular: true
+  },
+  {
+    id: 'gold',
+    name: 'GOLD PACK',
+    profitPercentage: 65,
+    minDeposit: 300,
+    maxDeposit: 400,
+    minWithdraw: "1500 - 2000",
+    type: 'STANDARD'
+  },
+  
+  {
+    id: 'platinum',
+    name: 'PLATINUM PACK',
+    profitPercentage: 75,
+    minDeposit: 700,
+    maxDeposit: 900,
+    minWithdraw: "3500 - 4500" ,
+    type: 'ULTIMATE'
+  },
+  {
+    id: 'vip',
+    name: 'VIP PACK',
+    profitPercentage: 80,
+    minDeposit: 1000,
+    maxDeposit: 2000,
+    minWithdraw: "5000 - 10000",
+    isVip: true,
+    type: 'ULTIMATE'
+  },
+  {
+    id: 'global',
+    name: 'GLOBAL PACK',
+    profitPercentage: 95,
+    minDeposit: 3000,
+    maxDeposit: 5000,
+    minWithdraw: "15000 - 30000",
+    type: 'ULTIMATE'
+  }
+]
