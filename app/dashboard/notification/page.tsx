@@ -8,7 +8,6 @@ import LoadingPage from "@/components/global/LoadingPage";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
-import SubHeader from "@/components/dashboard/SubHeader";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { EmptyPage } from "@/components/dashboard/EmptyPage";

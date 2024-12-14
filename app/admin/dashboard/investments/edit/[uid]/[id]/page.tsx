@@ -71,12 +71,12 @@ function EditInvestment() {
         .required("Field required"),
     }),
 
-    onSubmit: (values, formHelpers) => handleUpdate(values, formHelpers),
+    onSubmit: (values, formHelpers) => {handleUpdate(values, formHelpers)},
   });
 
 
 
-  const handleUpdate = async (val: any, { setSubmitting }: FormikHelpers<typeof val>) => {
+  const handleUpdate = async (val: typeof formik.values, { setSubmitting }: FormikHelpers<typeof val>) => {
     formik.setSubmitting(true);
 
     try {
@@ -94,7 +94,6 @@ function EditInvestment() {
   if (loading) return <LoadingPage />
 
   const { touched, errors, values, getFieldProps, isSubmitting, setFieldValue, handleSubmit } = formik;
-console.log(values)
   return (
     <SidebarProvider>
       <AppSidebar />

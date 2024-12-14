@@ -127,7 +127,7 @@ const navMainAdmin = [
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
-  const [docc,loading] = useGetDocument("users", auth.currentUser?.uid as string, {snap: true, user: true})
+  const [loading] = useGetDocument("users", auth.currentUser?.uid as string, {snap: true, user: true})
   const {currentUser} = useAuthStore()
 
   const isAdmin = usePathname().includes("admin")
