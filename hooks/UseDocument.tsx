@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getDoc, doc, onSnapshot, getDocs, DocumentData } from "firebase/firestore";
 import { db } from "@/db/firebaseConfig";
 import { useAuthStore } from "@/store/authStore";
+import { UserDataType } from "@/types/table";
 
 
 function useGetDocument(colls: string, docId: string, { snap, user }: { snap: boolean, user?: boolean }) {
@@ -20,7 +21,7 @@ function useGetDocument(colls: string, docId: string, { snap, user }: { snap: bo
         (qsnap) => {
           setDocument(qsnap.data());
           setLoading(false);
-          if (user) setCurrentUser(qsnap.data())
+          if (user) setCurrentUser(qsnap.data() as UserDataType)
 
         },
         (err) => {
