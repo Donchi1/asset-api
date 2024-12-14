@@ -4,6 +4,7 @@ import { auth, db } from "@/db/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { useAuthStore } from "@/store/authStore";
+import { UserDataType } from "@/types/table";
 
 
 export const useGetCurrentUser = () => {
@@ -15,7 +16,7 @@ export const useGetCurrentUser = () => {
       if (authUser) {
         
         getDoc(doc(db, "users", authUser.uid)).then((fireUser ) => {
-             setCurrentUser(fireUser.data())
+             setCurrentUser(fireUser.data() as UserDataType);
              setLoading(false);
            }).catch(err =>{
              console.log(err)
