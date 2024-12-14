@@ -1,8 +1,8 @@
 
 import { deleteDoc, doc } from "firebase/firestore"
 import { deleteObject, ref } from "firebase/storage"
-import { db, storage } from "../db/firebaseDb"
-import Toast from "./Alert"
+import { db, storage } from "@/db/firebaseConfig"
+import { toast } from "@/hooks/use-toast"
 
 const handleDelete = async (docRef: string,{profile, url}:{profile?: boolean, url?: string} ) => {
     try {
@@ -10,15 +10,9 @@ const handleDelete = async (docRef: string,{profile, url}:{profile?: boolean, ur
         if(profile){
             await deleteObject(ref(storage, url))
         }
-        Toast.success.fire({
-          text: "Document successfully Deleted"
-        })   
+        toast({description: "Document successfully Deleted", variant: "success"})
       } catch (error: any) {
-        Toast.error.fire({
-          text: error.message
-        })
-        
-        
+        toast({description: error?.message, variant: "destructive"})
       }
   }
 
